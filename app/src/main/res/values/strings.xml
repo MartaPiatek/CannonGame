@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CannonGame</string>
+
+    <string name="result_format">Oddanych strzałów: %1$d\nCałkowity czas: %2$.1</string>
+    <string name="reset_game">Uruchom ponownie</string>
+    <string name="win">Wygrałeś!</string>
+    <string name="lose">Przegrałeś!</string>
+    <string name="time_remaining_format">Pozostało: %.1f sekund</string>
+
+
+</resources>
