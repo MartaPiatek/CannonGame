@@ -46,7 +46,7 @@ public class MainActivityFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        //  cannonView.stopGame();
+        cannonView.stopGame();
 
     }
 
@@ -54,6 +54,6 @@ public class MainActivityFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
 
-        // cannonView.releaseResources();
+        cannonView.releaseResources();
     }
 }
