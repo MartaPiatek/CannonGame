@@ -1,17 +1,19 @@
  language: android
- sudo: false
+ sudo: required
  jdk:
-  - oraclejdk8
+   - oraclejdk8
  before_install:
- - chmod +x gradlew
+   - chmod +x gradlew
+   - yes | sdkmanager "platforms;android-27"
+ 
  env:
   global:
-   - ANDROID_API_LEVEL=26
-   - EMULATOR_API_LEVEL=21
-   - ANDROID_BUILD_TOOLS_VERSION=26.0.2
+   - ANDROID_API_LEVEL=27
+   - EMULATOR_API_LEVEL=23
+   - ANDROID_BUILD_TOOLS_VERSION=27.0.3
    - ANDROID_ABI=armeabi-v7a
    - ANDROID_TAG=google_apis
-   - ADB_INSTALL_TIMEOUT=20 # minutes
+   - ADB_INSTALL_TIMEOUT=30 # minutes
  android:
   components:
     - tools
@@ -28,11 +30,11 @@
     - sys-img-armeabi-v7a-google_apis-$EMULATOR_API_LEVEL
 
  licenses:
- - android-sdk-preview-license-.+
- - android-sdk-license-.+
- - google-gdk-license-.+
+    - android-sdk-preview-license-.+
+    - android-sdk-license-.+
+    - google-gdk-license-.+
  before_script:
-  - echo no | android create avd --force -n test -t "android-$EMULATOR_API_LEVEL" --abi $ANDROID_ABI --tag $ANDROID_TAG
-  - emulator -avd test -no-window &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 &
+    - echo no | android create avd --force -n test -t "android-$EMULATOR_API_LEVEL" --abi $ANDROID_ABI --tag $ANDROID_TAG
+    - emulator -avd test -no-window &
+    - android-wait-for-emulator
+    - adb shell input keyevent 82 &
